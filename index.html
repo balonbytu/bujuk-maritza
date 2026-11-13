@@ -1,0 +1,449 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jangan Pergi Dulu 💗</title>
+
+<style>
+* {
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'Trebuchet MS', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background: #f8cbdc;
+  color: #88465e;
+}
+
+/* BACKGROUND BURAM */
+body::before {
+  content: "";
+  position: fixed;
+  inset: -20px;
+  background:
+    radial-gradient(circle at 20% 20%, #fff0f6, transparent 40%),
+    radial-gradient(circle at 80% 70%, #f5a9c8, transparent 45%),
+    linear-gradient(135deg, #fbdce8, #f3b6cf, #ffeaf2);
+  filter: blur(12px);
+  z-index: -1;
+}
+
+.hearts {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.heart {
+  position: absolute;
+  bottom: -30px;
+  animation: float 8s linear infinite;
+  opacity: .5;
+}
+
+@keyframes float {
+  to {
+    transform: translateY(-110vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* KOTAK UTAMA */
+.container {
+  width: 90%;
+  max-width: 390px;
+  min-height: 480px;
+  padding: 25px 20px;
+  border-radius: 28px;
+  text-align: center;
+  background: rgba(255,255,255,.68);
+  border: 2px solid rgba(255,255,255,.85);
+  box-shadow: 0 15px 40px rgba(173,90,125,.18);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  position: relative;
+}
+
+.slide {
+  display: none;
+  animation: appear .5s ease;
+}
+
+.slide.active {
+  display: block;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* GIF KUCING */
+.cat {
+  width: 190px;
+  height: 190px;
+  object-fit: contain;
+  margin: 5px auto 10px;
+  display: block;
+}
+
+h2 {
+  font-size: 23px;
+  margin: 10px 0;
+}
+
+p {
+  font-size: 15px;
+  line-height: 1.7;
+  margin: 12px 0 20px;
+}
+
+button {
+  border: none;
+  padding: 13px 27px;
+  border-radius: 30px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: .2s;
+}
+
+.yes {
+  background: #f28bb4;
+  color: white;
+  box-shadow: 0 5px 12px #e9a5c1;
+}
+
+.yes:active {
+  transform: scale(.94);
+}
+
+.start {
+  background: #e879a5;
+  color: white;
+}
+
+/* SLIDE PERTANYAAN */
+.question-number {
+  color: #d66d98;
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.question-box {
+  background: rgba(255,255,255,.85);
+  padding: 20px 12px;
+  border-radius: 20px;
+  margin: 15px 0;
+  border: 1px solid #f5bfd3;
+  min-height: 95px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.question-box h2 {
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+.button-area {
+  height: 90px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 35px;
+}
+
+.no {
+  background: #e5a2bd;
+  color: white;
+  position: absolute;
+  left: 58%;
+  top: 25px;
+  z-index: 5;
+  touch-action: none;
+}
+
+.final-cat {
+  width: 210px;
+  height: 210px;
+  object-fit: contain;
+}
+
+.progress {
+  height: 7px;
+  background: #f5d5e2;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-top: 15px;
+}
+
+.progress-inner {
+  height: 100%;
+  width: 0%;
+  background: #e77ca5;
+  transition: .3s;
+}
+
+.small {
+  font-size: 12px;
+  color: #bd7793;
+}
+</style>
+</head>
+
+<body>
+
+<div class="hearts" id="hearts"></div>
+
+<main class="container">
+
+  <!-- SLIDE 1 -->
+  <section class="slide active" id="slide1">
+
+    <img src="kb1.gif" class="cat">
+
+    <h2>hai ayangg... 🥺💕</h2>
+
+    <p>
+      tunggu sebentar dong...
+      <br>
+      minta waktu nya bentarrr.
+      <br>
+      jangan langsung pergi yaa~
+    </p>
+
+    <button class="start" onclick="nextSlide(2)">
+      oke, apa? 💗
+    </button>
+
+  </section>
+
+
+  <!-- SLIDE 2 -->
+  <section class="slide" id="slide2">
+
+    <img src="kb2.gif" class="cat">
+
+    <h2>jangan pergi dulu! 😿</h2>
+
+    <p>
+      aku tahu mungkin aku sangat menyebalkan...
+      <br>
+      tapi boleh nggak aku minta sedikit kesempatan?
+      <br><br>
+      cuman klik klik doang kok
+    </p>
+
+    <button class="start" onclick="nextSlide(3)">
+      okey, lanjut 💞
+    </button>
+
+  </section>
+
+
+  <!-- SLIDE 3 : 10 PERTANYAAN -->
+  <section class="slide" id="slide3">
+
+    <img src="kb3.gif"
+         style="width:125px;height:125px;object-fit:contain">
+
+    <div class="question-number" id="number">
+      
+    </div>
+
+    <div class="question-box">
+      <h2 id="question">
+         masih sayang aku kan? 🥺
+      </h2>
+    </div>
+
+    <p class="small">
+      jawab yang jujur yaa... 💗
+    </p>
+
+    <div class="button-area" id="buttonArea">
+
+      <button class="yes" onclick="answerYes()">
+        iya 💗
+      </button>
+
+      <button class="no" id="noButton"
+        onpointerdown="moveNo(event)"
+        onclick="moveNo(event)">
+        Tidak 🙃
+      </button>
+
+    </div>
+
+    <div class="progress">
+      <div class="progress-inner" id="progress"></div>
+    </div>
+
+  </section>
+
+
+  <!-- SLIDE 4 : TERAKHIR -->
+  <section class="slide" id="slide4">
+
+    <img src="kb4.gif" class="final-cat">
+
+    <h2>Yeayyy! 🥹💗</h2>
+
+    <p>
+      makasih udah sayang akuuu
+      <br><br>
+      love youuuuuuu
+      <br>
+      akhirnya baikann
+      <br><br>
+      <b>karena ayang itu berharga! 💕</b>
+    </p>
+
+    <div style="font-size:30px">
+       💗 
+    </div>
+
+  </section>
+
+</main>
+
+
+<script>
+
+/* PINDAH SLIDE */
+function nextSlide(number) {
+
+  document.querySelectorAll('.slide').forEach(slide => {
+    slide.classList.remove('active');
+  });
+
+  document.getElementById('slide' + number)
+    .classList.add('active');
+
+}
+
+
+/* 10 PERTANYAAN */
+const questions = [
+  "ayang masih sayang aku nggak? 🥺",
+  "ayang masih mau sama aku kan? 💗",
+  "ayang nggak bosan sama akukan? 😿",
+  "aku masih jadi orang spesial buat ayangkan? 🥹",
+  "ayang mau maafin kesalahankukan? 💕",
+  "ayang masih mau dengar ceritakukan? 🌷",
+  "ayang mau tetap di sini sebentar lagi? 🐱",
+  "ayang nggak mau ninggalin aku kan? 🥺",
+  "boleh aku terus membuat ayang tersenyumkan? 💖",
+  "terakhir... kita baikan yaa? 🥹💕"
+];
+
+let currentQuestion = 0;
+
+
+/* JAWAB IYA */
+function answerYes() {
+
+  currentQuestion++;
+
+  if (currentQuestion >= questions.length) {
+
+    nextSlide(4);
+    return;
+
+  }
+
+  document.getElementById('number').innerText =
+    `PERTANYAAN ${currentQuestion + 1} / 10`;
+
+  document.getElementById('question').innerText =
+    questions[currentQuestion];
+
+  document.getElementById('progress').style.width =
+    (currentQuestion / 10 * 100) + '%';
+
+  resetNoButton();
+
+}
+
+
+/* TOMBOL TIDAK BERPINDAH */
+const noButton = document.getElementById('noButton');
+const buttonArea = document.getElementById('buttonArea');
+
+function moveNo(event) {
+
+  if (event) {
+    event.preventDefault();
+  }
+
+  const area = buttonArea.getBoundingClientRect();
+  const btn = noButton.getBoundingClientRect();
+
+  const maxX = Math.max(0, area.width - btn.width);
+  const maxY = Math.max(0, area.height - btn.height);
+
+  const randomX = Math.random() * maxX;
+  const randomY = Math.random() * maxY;
+
+  noButton.style.left = randomX + 'px';
+  noButton.style.top = randomY + 'px';
+
+}
+
+function resetNoButton() {
+  noButton.style.left = '58%';
+  noButton.style.top = '25px';
+}
+
+
+/* HATI MELAYANG */
+const hearts = document.getElementById('hearts');
+
+function createHeart() {
+
+  const heart = document.createElement('div');
+
+  heart.className = 'heart';
+  heart.innerHTML = ['💕','💗','💖','🌸','♡'][
+    Math.floor(Math.random() * 5)
+  ];
+
+  heart.style.left = Math.random() * 100 + '%';
+  heart.style.fontSize = (15 + Math.random() * 18) + 'px';
+  heart.style.animationDuration = (5 + Math.random() * 5) + 's';
+
+  hearts.appendChild(heart);
+
+  setTimeout(() => heart.remove(), 10000);
+
+}
+
+setInterval(createHeart, 600);
+
+</script>
+
+</body>
+</html>
